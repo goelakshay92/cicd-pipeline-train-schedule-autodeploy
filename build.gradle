@@ -24,7 +24,7 @@ task zip(type: Zip) {
 		include "views/**"
 	}
 	destinationDirectory = file("dist")
-	baseName "trainSchedule"
+	baseName = "trainSchedule"
 }
 
 //declare task dependencies

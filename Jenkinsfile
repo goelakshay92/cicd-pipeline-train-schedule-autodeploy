@@ -12,9 +12,6 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            when {
-                branch 'testbranch'
-            }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)

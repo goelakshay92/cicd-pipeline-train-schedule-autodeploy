@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }        
-        stage('DeployToProduction') {
+        stage('DeployToK8s') {
             steps {
                 script {
                     kubernetesDeploy(configs: "train-schedule-deployment.yaml", "train-schedule-service.yaml")

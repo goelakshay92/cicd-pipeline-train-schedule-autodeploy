@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: train-schedule
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: train-sch
+    spec:
+      containers:
+        - name: train-schedule
+          image: goelakshay92/train-schedule:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+  selector:
+    matchLabels:
+      app: train-sch

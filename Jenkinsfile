@@ -33,6 +33,16 @@ pipeline {
         }        
         stage('DeployToProduction') {
             steps {
+                script {
+                    kubernetesDeploy(configs: "train-schedule-deployment.yaml", "train-schedule-service.yaml")
+                }
+            }
+        }
+        stage('DeployToProduction') {
+            when {
+                branch 'master'
+            }
+            steps {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(

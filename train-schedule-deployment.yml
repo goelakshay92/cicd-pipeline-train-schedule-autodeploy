@@ -2,22 +2,31 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: train-schedule
+  labels:
+    app: train-sch
 spec:
   replicas: 2
-  template:
-    metadata:
-      labels:
-        app: train-sch
-    spec:
-      containers:
-        - name: train-schedule
-          image: goelakshay92/train-schedule:latest
-          imagePullPolicy: Always
-          ports:
-            - containerPort: 3000
-          env:
-            - name: ALLOW_EMPTY_PASSWORD
-              value: "yes"
   selector:
     matchLabels:
       app: train-sch
+  template:
+    metadata:
+      labels:
+        app: train-schedule
+        track: stable
+    spec:
+      containers:
+      - name: train-schedule
+        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+          periodSeconds: 10
+        resources:
+          requests:
+            cpu: 200m

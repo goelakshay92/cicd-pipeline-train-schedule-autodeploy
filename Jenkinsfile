@@ -66,7 +66,7 @@ HZU=
     
                  sh 'kubectl apply -f train-schedule-deployment.yml'
                  sh 'kubectl apply -f train-schedule-service.yml'
-                 sh 'kubectl rollout restart deployment train-schedule'
+                 sh 'kubectl rollout restart deployment train-schedule -n jenkins-deploy'
                 }
             }
         }

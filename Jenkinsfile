@@ -62,7 +62,7 @@ pipeline {
                             xm2IMMRZCmoYTl7aDuuBqgpvPQcqDCfD/cbt1tNaf+BuIFXeA24nRzf0GmRlnkUZ
                             ACI71vYV4tLBN2thrrMyvZ8jsrLf67JumnGJ9A2bI7xCZTn+m7zuUeHMkuXDLAKq
                             HZU=
-                            -----END CERTIFICATE-----''', credentialsId: 'kube-test', serverUrl: 'https://172.31.6.52:6443') {    
+                            -----END CERTIFICATE-----''', credentialsId: 'jenkins-deploy', serverUrl: 'https://172.31.6.52:6443') {    
                  sh 'kubectl apply -f train-schedule-deployment.yaml'
                  sh 'kubectl apply -f train-schedule-app-service.yaml'
                  sh 'kubectl rollout restart deployment train-schedule'

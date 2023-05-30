@@ -8,6 +8,5 @@ spec:
   selector:
     app: train-sch
   ports:
-  - protocol: TCP
-    port: 3000
-    targetPort: 3000
+  - port: 8050
+    targetPort: 8050

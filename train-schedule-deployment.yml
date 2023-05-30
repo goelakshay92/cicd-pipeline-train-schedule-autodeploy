@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: train-schedule
+  namespace: jenkins-deploy
   labels:
     app: train-sch
 spec:

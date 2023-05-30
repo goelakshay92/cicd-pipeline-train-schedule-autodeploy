@@ -65,7 +65,7 @@ HZU=
 -----END CERTIFICATE-----''', credentialsId: 'jenkins-deploy', serverUrl: 'https://172.31.6.52:6443') {
     
                  sh 'kubectl apply -f train-schedule-deployment.yml'
-                 sh 'kubectl apply -f train-schedule-app-service.yml'
+                 sh 'kubectl apply -f train-schedule-service.yml'
                  sh 'kubectl rollout restart deployment train-schedule'
                 }
             }

@@ -20,11 +20,11 @@ spec:
       - name: train-schedule
         image: goelakshay92/train-schedule:latest
         ports:
-        - containerPort: 3000
+        - containerPort: 8050
         livenessProbe:
           httpGet:
             path: /
-            port: 3000
+            port: 8050
           initialDelaySeconds: 20
           timeoutSeconds: 10
           periodSeconds: 100

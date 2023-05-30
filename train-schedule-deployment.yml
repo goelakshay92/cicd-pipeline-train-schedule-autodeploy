@@ -25,9 +25,9 @@ spec:
           httpGet:
             path: /
             port: 3000
-          initialDelaySeconds: 15
-          timeoutSeconds: 1
-          periodSeconds: 10
+          initialDelaySeconds: 20
+          timeoutSeconds: 10
+          periodSeconds: 100
         resources:
           requests:
             cpu: 200m
